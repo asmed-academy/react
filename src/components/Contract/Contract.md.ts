@@ -38,7 +38,7 @@ export const prepareContract = ({
     
     - Parágrafo Primeiro: Qualquer mudança em relação ao horário do estágio, estabelecido na Cláusula Terceira, deverá resultar de prévio entendimento entre o(a) CONCEDENTE e o(a) ESTAGIÁRIO(A), ficando ressalvada a possibilidade do estágio compreender atividades tanto internas como externas.
     
-    - Parágrafo Segundo: Os serviços do ESTAGIÁRIO(A) são voluntários e o programa, não remunerado..
+    - Parágrafo Segundo: Os serviços do ESTAGIÁRIO(A) são voluntários e o programa, não remunerado.
     CLÁUSULA QUARTA: Nos termos do art. 4o da Lei 6.494 de 07.12.77 e do art 6o do Decreto 87.497, de 18.08.82, o estágio não caracterizará vínculo empregatício de qualquer natureza com o(a) CONCEDENTE.
     
     CLÁUSULA QUINTA: O estágio objeto do presente Termo de Compromisso, terá a duração de 17/09/2019 a 13/12/2019, podendo ser interrompido a qualquer momento pelo(a) CONCEDENTE ou pelo(a) ESTAGIÁRIO(A), mediante simples comunicação por escrito de uma parte à outra, a ser feita com 05 (cinco) dias de antecedência, no mínimo.
