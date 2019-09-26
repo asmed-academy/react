@@ -8,9 +8,7 @@ export const Contract = ({
   course,
   enrollment,
   birthday,
-  address,
-  city,
-  state
+  address
 }: ContractData) => (
   <div>
     <h4>

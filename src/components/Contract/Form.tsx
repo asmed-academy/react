@@ -1,12 +1,16 @@
 import React from "react";
+import styled from "styled-components";
+import { TextField } from "./TextField";
 
-type FormProps = {
+export type FormProps = {
   name: string;
   onChangeName: (name: string) => void;
   semester: string;
   onChangeSemester: (smstr: string) => void;
   course: string;
   onChangeCourse: (course: string) => void;
+  enrollment: string;
+  onChangeEnrollment: (enrollment: string) => void;
   postalCode: string;
   onChangePostalCode: (postalCode: string) => void;
   isLoadingPostalCode: boolean;
@@ -19,11 +23,13 @@ export const Form = ({
   onChangeSemester,
   course,
   onChangeCourse,
+  enrollment,
+  onChangeEnrollment,
   postalCode,
   onChangePostalCode,
   isLoadingPostalCode
 }: FormProps) => (
-  <div>
+  <FormHolder>
     <TextField
       label="Nome"
       value={name}
@@ -41,6 +47,12 @@ export const Form = ({
       value={course}
       onChange={onChangeCourse}
     />
+    
+    <TextField
+      label="Nº de Matricula"
+      value={enrollment}
+      onChange={onChangeEnrollment}
+    />
 
     <TextField
       label="CEP"
@@ -51,26 +63,12 @@ export const Form = ({
     {isLoadingPostalCode && (
       <span style={{ color: "#f00" }}>carregando cep</span>
     )}
-  </div>
+  </FormHolder>
 );
 
-type TextFieldProps = {
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-};
+const FormHolder = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+`;
 
-const TextField = ({
-  label,
-  value,
-  onChange
-}: TextFieldProps) => (
-  <label>
-    <span>{label}</span>
-    <input
-      type="text"
-      value={value}
-      onChange={evt => onChange(evt.target.value)}
-    />
-  </label>
-);

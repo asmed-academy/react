@@ -5,6 +5,4 @@ export type ContractData = {
     enrollment: string;
     birthday: Date;
     address: string;
-    city: string;
-    state: string;
   };
