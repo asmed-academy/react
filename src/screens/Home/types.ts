@@ -7,5 +7,6 @@ export type HomeProps = FormProps & {
 export type AddressResult = {
   logradouro: string;
   localidade: string;
+  bairro: string;
   uf: string;
 };

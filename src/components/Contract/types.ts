@@ -3,6 +3,6 @@ export type ContractData = {
     semester: string;
     course: string;
     enrollment: string;
-    birthday: Date;
+    birthday: string;
     address: string;
   };

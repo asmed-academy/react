@@ -13,6 +13,14 @@ export type FormProps = {
   onChangeEnrollment: (enrollment: string) => void;
   postalCode: string;
   onChangePostalCode: (postalCode: string) => void;
+  birthday: string;
+  onChangeBirthday: (birthday: string) => void;
+  addressNumber: string;
+  onChangeAddressNumber: (addressNumber: string) => void;
+  addressComplement: string;
+  onChangeAddressComplement: (
+    addressComplement: string
+  ) => void;
   isLoadingPostalCode: boolean;
 };
 
@@ -25,8 +33,14 @@ export const Form = ({
   onChangeCourse,
   enrollment,
   onChangeEnrollment,
+  birthday,
+  onChangeBirthday,
   postalCode,
   onChangePostalCode,
+  addressNumber,
+  onChangeAddressNumber,
+  addressComplement,
+  onChangeAddressComplement,
   isLoadingPostalCode
 }: FormProps) => (
   <FormHolder>
@@ -34,6 +48,13 @@ export const Form = ({
       label="Nome"
       value={name}
       onChange={onChangeName}
+    />
+
+    <TextField
+      label="Dt Aniversário"
+      type="date"
+      value={birthday}
+      onChange={onChangeBirthday}
     />
 
     <TextField
@@ -47,7 +68,7 @@ export const Form = ({
       value={course}
       onChange={onChangeCourse}
     />
-    
+
     <TextField
       label="Nº de Matricula"
       value={enrollment}
@@ -58,6 +79,18 @@ export const Form = ({
       label="CEP"
       value={postalCode}
       onChange={onChangePostalCode}
+    />
+
+    <TextField
+      label="Nº"
+      value={addressNumber}
+      onChange={onChangeAddressNumber}
+    />
+    
+    <TextField
+      label="Complemento"
+      value={addressComplement}
+      onChange={onChangeAddressComplement}
     />
 
     {isLoadingPostalCode && (
@@ -71,4 +104,3 @@ const FormHolder = styled.div`
   width: 100%;
   flex-direction: column;
 `;
-

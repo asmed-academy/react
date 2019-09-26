@@ -16,10 +16,16 @@ export const Home = ({
   onChangeCourse,
   enrollment,
   onChangeEnrollment,
+  birthday,
+  onChangeBirthday,
   address,
   postalCode,
   onChangePostalCode,
-  isLoadingPostalCode
+  addressNumber,
+  onChangeAddressNumber,
+  addressComplement,
+  onChangeAddressComplement,
+  isLoadingPostalCode,
 }: HomeProps) => {
   return (
     <div>
@@ -34,8 +40,14 @@ export const Home = ({
           onChangeCourse={onChangeCourse}
           enrollment={enrollment}
           onChangeEnrollment={onChangeEnrollment}
+          birthday={birthday}
+          onChangeBirthday={onChangeBirthday}
           postalCode={postalCode}
           onChangePostalCode={onChangePostalCode}
+          addressNumber={addressNumber}
+          onChangeAddressNumber={onChangeAddressNumber}
+          addressComplement={addressComplement}
+          onChangeAddressComplement={onChangeAddressComplement}
           isLoadingPostalCode={isLoadingPostalCode}
         />
         <Contract
@@ -44,7 +56,7 @@ export const Home = ({
           course={course}
           address={address}
           enrollment={enrollment}
-          birthday={new Date()}
+          birthday={birthday}
         />
       </div>
     </div>
