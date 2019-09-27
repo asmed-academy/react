@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { TextField } from "../Contract/TextField";
 
 import Button from "@material-ui/core/Button";
-import { FormProps } from "./types";
+import { FormInnerProps } from "./types";
 
 export const Form = ({
   address,
@@ -24,7 +24,7 @@ export const Form = ({
   addressComplement,
   onChangeAddressComplement,
   isLoadingPostalCode
-}: FormProps) => (
+}: FormInnerProps) => (
   <FormHolder>
     <TextField
       label="Nome"
