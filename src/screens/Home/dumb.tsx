@@ -1,6 +1,6 @@
 import React from "react";
 import { HomeProps } from "./types";
-import { Form } from "../../components/Contract/Form";
+import { Form } from "../../components/Form/dumb";
 import { Contract } from "../../components/Contract/Contract";
 
 const data = {

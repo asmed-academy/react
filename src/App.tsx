@@ -7,6 +7,8 @@ import {
 } from "rxjs";
 
 import Home from './screens/Home/enhanced';
+// import { Form } from './components/Contract/Form';
+
 
 const rxjsConfig = {
   fromESObservable: from,

@@ -1,30 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { TextField } from "./TextField";
+import { TextField } from "../Contract/TextField";
 
-export type FormProps = {
-  name: string;
-  onChangeName: (name: string) => void;
-  semester: string;
-  onChangeSemester: (smstr: string) => void;
-  course: string;
-  onChangeCourse: (course: string) => void;
-  enrollment: string;
-  onChangeEnrollment: (enrollment: string) => void;
-  postalCode: string;
-  onChangePostalCode: (postalCode: string) => void;
-  birthday: string;
-  onChangeBirthday: (birthday: string) => void;
-  addressNumber: string;
-  onChangeAddressNumber: (addressNumber: string) => void;
-  addressComplement: string;
-  onChangeAddressComplement: (
-    addressComplement: string
-  ) => void;
-  isLoadingPostalCode: boolean;
-};
+import Button from "@material-ui/core/Button";
+import { FormProps } from "./types";
 
 export const Form = ({
+  address,
   name,
   onChangeName,
   semester,
@@ -86,7 +68,7 @@ export const Form = ({
       value={addressNumber}
       onChange={onChangeAddressNumber}
     />
-    
+
     <TextField
       label="Complemento"
       value={addressComplement}
@@ -96,6 +78,12 @@ export const Form = ({
     {isLoadingPostalCode && (
       <span style={{ color: "#f00" }}>carregando cep</span>
     )}
+
+    <strong>{address}</strong>
+
+    <Button variant="contained">
+      Salvar
+    </Button>
   </FormHolder>
 );
 

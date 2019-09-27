@@ -1,12 +1,5 @@
-import { FormProps } from "../../components/Contract/Form";
+import { FormProps } from "../../components/Form/dumb";
 
 export type HomeProps = FormProps & {
   address: string;
-};
-
-export type AddressResult = {
-  logradouro: string;
-  localidade: string;
-  bairro: string;
-  uf: string;
 };
