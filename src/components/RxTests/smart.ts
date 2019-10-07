@@ -8,7 +8,8 @@ import {
 import {
   BehaviorSubject,
   Observable,
-  combineLatest
+  combineLatest,
+  Subscribable
 } from "rxjs";
 import {
   map,
@@ -21,7 +22,7 @@ import {
 const enhancer = mapPropsStream<
   RxTestsInnerProps,
   RxTestsOuterProps
->((prop$: Observable<RxTestsOuterProps>) => {
+>((prop$: Subscribable<RxTestsOuterProps>) => {
   const ui = {
     query$$: new BehaviorSubject("")
   };
