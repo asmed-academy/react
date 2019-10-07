@@ -12,14 +12,15 @@ const logAction = fieldName => newValue =>
 
 const fakePostalCodeFetcher = postalCode =>
   Promise.resolve({
-      logradouro: 'Rua dos Bobos',
-      bairro: 'Santa Teresa',
-      localidade: 'Terra do Nunca',
-      uf: 'PQP'
+    logradouro: "Rua dos Bobos",
+    bairro: "Santa Teresa",
+    localidade: "Terra do Nunca",
+    uf: "PQP"
   });
 
 export const Vazio = () => (
   <Form
     findPostalCode={fakePostalCodeFetcher}
+    onSubmitData={action('joãozinho')}
   />
 );

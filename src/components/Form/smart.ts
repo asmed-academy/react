@@ -3,7 +3,8 @@ import { FormInnerProps, AddressResult, FormOuterProps } from "./types";
 import {
   BehaviorSubject,
   Observable,
-  combineLatest
+  combineLatest,
+  of
 } from "rxjs";
 import {
   filter,
@@ -12,7 +13,8 @@ import {
   switchMap,
   startWith,
   map,
-  withLatestFrom
+  withLatestFrom,
+  catchError
 } from "rxjs/operators";
 
 import { Form } from "./dumb";
@@ -55,8 +57,13 @@ const enhancer = mapPropsStream<
     map(({ logradouro, localidade, uf, bairro }) => {
       return `${logradouro}, ${bairro} - ${localidade} - ${uf}`;
     }),
+    catchError(err => {
+      alert(err.message);
+
+      return of('');
+    }),
     tap(endereco => {
-        ui.address.next(endereco);
+      ui.address.next(endereco);
       ui.isLoadingPostalCode.next(false);
     }),
     filter(() => false),
@@ -105,11 +112,13 @@ const enhancer = mapPropsStream<
   );
 
   const mainProp$ = combineLatest(
+    prop$ as Observable<FormOuterProps>,
     formData$,
     ui.isLoadingPostalCode
   ).pipe(
     map(
       ([
+        { onSubmitData }, 
         [
           name,
           semester,
@@ -124,6 +133,22 @@ const enhancer = mapPropsStream<
         isLoadingPostalCode
       ]) => {
         return {
+          onSubmitData: () => {
+            if (!name) {
+              alert('Existem campos não preenchidos...');
+
+              return;
+            }
+
+            onSubmitData({
+              name,
+              semester,
+              course,
+              address,
+              birthday,
+              enrollment
+            })
+          },
           name,
           onChangeName: name => ui.name.next(name),
           semester,

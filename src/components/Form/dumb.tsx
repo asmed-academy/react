@@ -23,7 +23,8 @@ export const Form = ({
   onChangeAddressNumber,
   addressComplement,
   onChangeAddressComplement,
-  isLoadingPostalCode
+  isLoadingPostalCode,
+  onSubmitData
 }: FormInnerProps) => (
   <FormHolder>
     <TextField
@@ -81,7 +82,12 @@ export const Form = ({
 
     <strong>{address}</strong>
 
-    <Button variant="contained">
+    <Button
+      variant="contained"
+      onClick={() => {
+        onSubmitData();
+      }}
+    >
       Salvar
     </Button>
   </FormHolder>

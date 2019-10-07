@@ -2,12 +2,12 @@ import React from "react";
 
 import { ContractData } from "./types";
 
-import moment from 'moment';
-import 'moment/locale/pt-br';
+import moment from "moment";
+import "moment/locale/pt-br";
 
-moment.locale('pt-br');
+moment.locale("pt-br");
 
-const dataDeTeste = new Date('2019-09-02');
+const dataDeTeste = new Date("2019-09-02");
 
 export const Contract = ({
   name,
@@ -32,9 +32,12 @@ export const Contract = ({
       <strong>{name}</strong>, regularmente matriculado no{" "}
       <strong>{semester}º período</strong> do curso de{" "}
       <strong>{course}</strong>, nº de matrícula{" "}
-      <strong>{enrollment}</strong>, da Uninorte, nascido {" "}
-      <strong>{moment(birthday).format("DD [de] MMMM [de] YYYY")}</strong>, residente e domiciliado(a)
-      em <strong>{address}</strong>, doravante denominado(a)
+      <strong>{enrollment}</strong>, da Uninorte, nascido{" "}
+      <strong>
+        {moment(birthday).format("DD [de] MMMM [de] YYYY")}
+      </strong>
+      , residente e domiciliado(a) em{" "}
+      <strong>{address}</strong>, doravante denominado(a)
       ESTAGIÁRIO(A), celebram o presente TERMO DE
       COMPROMISSO, mediante as cláusulas seguintes:
     </p>
@@ -118,7 +121,7 @@ export const Contract = ({
       instrumento em 03 (três) vias de igual teor.
     </p>
     <p>
-      Manaus, {moment().format('DD [de] MMMM [de] YYYY')}.
+      Manaus, {moment().format("DD [de] MMMM [de] YYYY")}.
     </p>
   </div>
 );

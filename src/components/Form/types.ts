@@ -1,6 +1,16 @@
 
 export type FormOuterProps = {
-    findPostalCode: (postalCode: string) => Promise<AddressResult>
+    findPostalCode: (postalCode: string) => Promise<AddressResult>;
+    onSubmitData: (studentData: StudentData) => void;
+};
+
+export type StudentData = {
+  name: string,
+  birthday: string,
+  semester: string,
+  course: string,
+  enrollment: string,
+  address: string
 };
 
 export type FormInnerProps = {
@@ -24,6 +34,7 @@ export type FormInnerProps = {
     ) => void;
     isLoadingPostalCode: boolean;
     address: string;
+    onSubmitData: () => void;
   };
 
   export type AddressResult = {
