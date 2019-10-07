@@ -23,7 +23,7 @@ export type FormInnerProps = {
       addressComplement: string
     ) => void;
     isLoadingPostalCode: boolean;
-    address: boolean;
+    address: string;
   };
 
   export type AddressResult = {

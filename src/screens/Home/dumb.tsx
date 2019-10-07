@@ -32,6 +32,7 @@ export const Home = ({
       {/* <Header /> */}
       <div style={{ width: "100%" }}>
         <Form
+          address={address}
           name={name}
           onChangeName={onChangeName}
           semester={semester}

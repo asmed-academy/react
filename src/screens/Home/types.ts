@@ -1,5 +1,5 @@
-import { FormProps } from "../../components/Form/dumb";
+import { FormInnerProps } from "../../components/Form/types";
 
-export type HomeProps = FormProps & {
+export type HomeProps = FormInnerProps & {
   address: string;
 };

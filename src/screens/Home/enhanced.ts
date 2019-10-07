@@ -1,5 +1,5 @@
 import { mapPropsStream } from "recompose";
-import { HomeProps, AddressResult } from "./types";
+import { HomeProps } from "./types";
 import {
   BehaviorSubject,
   combineLatest,
@@ -15,6 +15,7 @@ import {
 } from "rxjs/operators";
 
 import { Home } from "./dumb";
+import { AddressResult } from "../../components/Form/types";
 
 const enhancer = mapPropsStream<HomeProps, {}>(() => {
   const ui = {

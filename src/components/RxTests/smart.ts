@@ -22,7 +22,7 @@ import {
 const enhancer = mapPropsStream<
   RxTestsInnerProps,
   RxTestsOuterProps
->((prop$: Subscribable<RxTestsOuterProps>) => {
+>((prop$: Observable<RxTestsOuterProps>) => {
   const ui = {
     query$$: new BehaviorSubject("")
   };
