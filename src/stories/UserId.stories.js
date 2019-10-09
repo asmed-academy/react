@@ -8,8 +8,10 @@ export default {
 
 export const Default = () => (
     <UserId
-     name="Fulana de Tal da Silva Saura" 
-     birthday="01/01/2001" 
-     cpf="123456789" 
+        name="Altenor da Silva Sauro" 
+        birthday={new Date('1990-10-09T00:00:00.000-04:00')} 
+        cpf="123.456.789-00"
+        assinatura= {new Date('2021-05-28T00:00:00.000-04:00')}
+        status="Assinatura Válida" 
     />
 );
