@@ -5,10 +5,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 
-import Tela03 from './screens/QrRender/dumb';
+import Tela from './screens/Tela/dumb';
 
 
-ReactDOM.render(<Tela03 />, document.getElementById('root'));
+ReactDOM.render(<Tela />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
