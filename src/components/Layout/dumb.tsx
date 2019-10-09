@@ -39,7 +39,7 @@ export const Layout = ({
               alignContent: "flex-start",
               justifyContent: "flex-start",
               flexGrow: 1,
-              margin: "0 8px"
+              margin: "0 5px"
             }}
           >
             <Typography variant="h5" color="inherit" noWrap>
@@ -75,7 +75,7 @@ export const Layout = ({
           overflowY: "auto",
           position: "fixed",
           overflowClipBox: "content-box",
-          top: "64px",
+          top: "60px",
           width: "100%",
           ...holderStyle
         }}
