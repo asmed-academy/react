@@ -1,22 +1,57 @@
-import React from 'react';
-import {ContainerStyled, TextStyled }  from '../../components/QRCodeRender/QrCodeRenderStyled';
-import windowSize from 'react-window-size';
-import {BoxProp} from './Box';
+import React, { useState } from "react";
+import {
+  ContainerStyled,
+  TextStyled
+} from "../../components/QRCodeRender/QrCodeRenderStyled";
+import windowSize from "react-window-size";
+import { Box } from "./Box";
+import { Button } from "./Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQrcode } from "@fortawesome/free-solid-svg-icons";
 
- const Tela = (props)=>{
+const Tela = props => {
+  const [active, setActive] = useState(null);
 
-    //const altura =`${props.windowHeight}px`;
-    const text = "Por favor click no QR Code para abrir a camera";
+  const activeCam = actived => {
+    setActive(actived);
 
-        return(
-            <ContainerStyled>
-                
-                <BoxProp height="40%" background="#000"></BoxProp>
+    console.log(active);
+  };
+  return (
+    <ContainerStyled>
+      {active ? (
+        <Box height="100%" background="#000">
+          <FontAwesomeIcon
+            icon={faQrcode}
+            style={{ color: "#fff", fontSize: 60 }}
+          />
+          <TextStyled
+            style={{ color: "#a4b0be", padding: "0 80px" }}
+          >
+            Ative a camera para ler o QR Code
+          </TextStyled>
+        
+        </Box>
+      ) : (
+        <Box height="100%" background="#000">
+          <FontAwesomeIcon
+            icon={faQrcode}
+            style={{ color: "#fff", fontSize: 60 }}
+          />
+          <TextStyled
+            style={{ color: "#a4b0be", padding: "0 80px" }}
+          >
+            Aponte a camera
+          </TextStyled>
 
-                <BoxProp height="60%" text ={text}></BoxProp>
-
-            </ContainerStyled>
-        ) 
-    }
+          <Button
+            name="Button"
+            onClick={() => activeCam(true)}
+          />
+        </Box>
+      )}
+    </ContainerStyled>
+  );
+};
 
 export default windowSize(Tela);
