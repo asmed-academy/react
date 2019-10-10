@@ -8,17 +8,20 @@ import { DumbProps } from "./types";
 
 import { MenuButton } from "./MenuButton";
 import { Sidebar } from "./Sidebar";
+import { BackButton } from "./BackButton";
 
 export const Layout = ({
   children,
-  height,
+  height = window.innerHeight,
   drawerState,
   onChangeDrawerState,
   title,
   subtitle,
   holderStyle = {},
   onLogOut,
-  openChangePassword
+  openChangePassword,
+  onBack,
+  renderRight
 }: DumbProps) => {
   return (
     <div>
@@ -29,9 +32,12 @@ export const Layout = ({
             margin: "0 8px 0 8px"
           }}
         >
-          <MenuButton
-            onChangeDrawerState={onChangeDrawerState}
-          />
+          {!onBack && (
+            <MenuButton
+              onChangeDrawerState={onChangeDrawerState}
+            />
+          )}
+          {!!onBack && <BackButton onBack={onBack} />}
           <div
             style={{
               display: "flex",
@@ -55,6 +61,7 @@ export const Layout = ({
               </Typography>
             )}
           </div>
+          {!!renderRight && renderRight()}
         </Toolbar>
       </AppBar>
       <Drawer

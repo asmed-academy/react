@@ -6,12 +6,14 @@ export type DumbProps = {
     children: React.ReactNode,
     drawerState: boolean,
     onChangeDrawerState: (newState: boolean) => void,
-    height: number,
+    height?: number,
     title: string,
     subtitle?: string,
     holderStyle?: React.CSSProperties
     onLogOut: () => void,
-    openChangePassword: () => void
+    openChangePassword: () => void,
+    renderRight?: () => React.ReactNode,
+    onBack?: () => void
   }
 
   export type SidebarProps = {
@@ -27,4 +29,12 @@ export type DumbProps = {
 
   export type MenuButtonProps = {
     onChangeDrawerState: (newState: boolean) => void
+  }
+
+  export type BackButtonProps = {
+    onBack: () => void
+  }
+
+  export type GearButtonProps = {
+    onClick: () => void
   }
