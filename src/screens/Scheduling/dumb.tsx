@@ -27,8 +27,7 @@ type AppointmentItem = {
 const height = window.innerHeight;
 
 export const Scheduling = ({ userName, appointments, onConfirmAppointment, onCancelAppointment }: SchedulingProps) => (
-    <Layout height={height} title="Meus Agendamentos" subtitle= {userName} >
-        
+    <Layout height={height} title="Meus Agendamentos">
         {appointments.map(({ specialty, date, id, price }) => (
             <Card style= {{ marginBottom: '16px'}}>
                 <CardContent>
