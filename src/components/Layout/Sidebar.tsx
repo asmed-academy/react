@@ -10,32 +10,30 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
 import MyAccountIcon from "@material-ui/icons/AccountBox";
+import { Close } from "@material-ui/icons";
 
 import theme from "../../theme";
 
 import { SidebarProps } from "./types";
 
 export const Sidebar = ({
-  onLogOut,
+  onLogout,
   onClose,
-  openChangePassword,
   user
 }: SidebarProps) => {
   return (
     <React.Fragment>
-      <Hidden lgUp>
-        <IconButton
-          onClick={onClose}
-          style={{
-            position: "fixed",
-            top: "8px",
-            left: "8px",
-            zIndex: 2
-          }}
-        >
-          <Icon>close</Icon>
-        </IconButton>
-      </Hidden>
+      <IconButton
+        onClick={onClose}
+        style={{
+          position: "fixed",
+          top: "8px",
+          left: "8px",
+          zIndex: 2
+        }}
+      >
+        <Close />
+      </IconButton>
       <List
         style={{
           maxWidth: "350px",
@@ -45,40 +43,12 @@ export const Sidebar = ({
       >
         <ListItem style={{ marginTop: "72px" }}>
           <img
-            src="/asmed-logo-small.png"
+            src="/logo-asmed.png"
             style={{
               height: "100px",
               width: "auto",
               margin: "0 auto",
               display: "block"
-            }}
-          />
-        </ListItem>
-        <ListItem
-          button
-          onClick={() => {
-            openChangePassword();
-          }}
-          style={{
-            backgroundColor: theme.fullWhite,
-            color: theme.brandDark2
-          }}
-        >
-          <ListItemIcon>
-            <Icon
-              style={{
-                color: theme.brandDark2
-              }}
-            >
-              vpn_key
-            </Icon>
-          </ListItemIcon>
-          <ListItemText
-            primary="Alterar Senha"
-            primaryTypographyProps={{
-              style: {
-                color: theme.brandDark2
-              }
             }}
           />
         </ListItem>
@@ -109,7 +79,7 @@ export const Sidebar = ({
               {user.name || user.email}
             </Typography>
             <Button
-              onClick={onLogOut}
+              onClick={onLogout}
               style={{
                 color: theme.danger,
                 marginTop: "16px"

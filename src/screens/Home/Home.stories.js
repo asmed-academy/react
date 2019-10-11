@@ -1,9 +1,9 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 
-import { Home } from "../screens/Home/dumb";
-import HomeEnhanced from "../screens/Home/enhanced";
-import HomeSmart from "../screens/Home/smart";
+import { Home } from "./dumb";
+import HomeEnhanced from "./enhanced";
+import HomeSmart from "./smart";
 
 export default {
   title: "Home"

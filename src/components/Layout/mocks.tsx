@@ -8,25 +8,22 @@ export const FakeContent = () => (
       feugiat nec. Phasellus dui neque, congue et ante
       gravida, porta consectetur quam. Suspendisse sit amet
       risus non elit dictum scelerisque. Donec at dui a elit
-      maximus dictum.
-      <br />
-      Mauris at ante id mauris mollis ullamcorper.
-      <br />
-      Sed eget hendrerit nisl.
-      <br />
-      Mauris sit amet dignissim sem, id congue diam. Donec
-      vel tellus vel felis posuere posuere. Phasellus congue
-      gravida suscipit. Etiam efficitur faucibus purus, ut
-      tincidunt est ornare ac. Morbi ac mollis dolor.
-      Pellentesque cursus nunc id pulvinar bibendum. Sed non
-      ullamcorper tellus. Nullam quis augue auctor, ornare
-      elit in, tempus arcu.
+      maximus dictum. Mauris at ante id mauris mollis
+      ullamcorper. Sed eget hendrerit nisl. Mauris sit amet
+      dignissim sem, id congue diam. Donec vel tellus vel
+      felis posuere posuere. Phasellus congue gravida
+      suscipit. Etiam efficitur faucibus purus, ut tincidunt
+      est ornare ac. Morbi ac mollis dolor. Pellentesque
+      cursus nunc id pulvinar bibendum. Sed non ullamcorper
+      tellus. Nullam quis augue auctor, ornare elit in,
+      tempus arcu.
     </p>
+    {/* 
     <img
       id="imagem"
       src="img/saude-mundo.png"
       alt="Coração + Globo"
-    />
+      />
     <p>
       Sed vestibulum auctor dui at sodales. Praesent vel
       metus ac purus aliquet efficitur. Suspendisse
@@ -121,7 +118,7 @@ export const FakeContent = () => (
       senectus et netus et malesuada fames ac turpis
       egestas. Quisque efficitur et quam ut molestie. Nulla
       facilisi. Etiam vel blandit erat.
-    </p>
+    </p> 
     <p>
       Integer in tincidunt nunc. Curabitur id metus nunc.
       Maecenas ultricies dui ac orci placerat suscipit. Nam
@@ -131,5 +128,6 @@ export const FakeContent = () => (
       sapien ut, gravida neque. Sed feugiat felis nec sem
       vestibulum, ac vulputate eros tempus.
     </p>
+    */}
   </div>
 );

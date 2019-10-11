@@ -6,84 +6,70 @@ import {
   CardContent,
   Typography,
   Button,
-  CardActions
+  CardActions,
+  Menu,
+  MenuItem
 } from "@material-ui/core";
-import { style } from "Scheduling";
 
-import { Layout } from "../../components/Layout/dumb";
+import { GenericMenuButton } from "../../components/Layout/GenericMenuButton";
+
+import Layout from "../../components/Layout/enhanced";
 import moment from "moment";
-import { GearButton } from "../../components/Layout/GearButton";
+import {
+  Settings,
+  ArrowDownward,
+  ArrowUpward,
+  History
+} from "@material-ui/icons";
 
-type SchedulingProps = {
-  userName: string;
-  appointments: AppointmentItem[];
-  onConfirmAppointment: (appointmentId: string) => void;
-  onCancelAppointment: (appointmentId: string) => void;
-};
-
-type AppointmentItem = {
-  id: string;
-  date: Date;
-  price: number;
-  specialty: {
-    id: string;
-    name: string;
-  };
-};
-
-const height = window.innerHeight;
+import { SchedulingInnerProps } from "./types";
+import Appointment from "../../components/Appointment/enhanced";
+import { IconMenuItem } from "../../components/IconMenuItem";
 
 export const Scheduling = ({
-  userName,
   appointments,
   onConfirmAppointment,
-  onCancelAppointment
-}: SchedulingProps) => (
+  onCancelAppointment,
+  menuAnchorEl,
+  setMenuAnchorElement,
+  onBack
+}: SchedulingInnerProps) => (
   <Layout
-    onBack={() => {}}
+    onBack={onBack}
     renderRight={() => (
-      <GearButton onClick={() => {}} />
+      <React.Fragment>
+        <GenericMenuButton
+          Icon={Settings}
+          tooltip="Configurações"
+          onClick={evt => {
+            setMenuAnchorElement(evt.target as Element);
+          }}
+        />
+        <Menu
+          anchorEl={menuAnchorEl}
+          open={!!menuAnchorEl}
+          onClose={() => setMenuAnchorElement(null)}
+        >
+          <IconMenuItem
+            text="Mais distantes primeiro"
+            onClick={() => {}}
+            Icon={ArrowUpward}
+          />
+          <IconMenuItem
+            text="Agendamentos anteriores"
+            onClick={() => {}}
+            Icon={History}
+          />
+        </Menu>
+      </React.Fragment>
     )}
-    height={height}
     title="Meus Agendamentos"
   >
-    {appointments.map(({ specialty, date, id, price }) => (
-      <Card style={{ marginBottom: "16px" }}>
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="h2"
-          >
-            {specialty.name}
-          </Typography>
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            component="p"
-          >
-            {moment(date).format("DD/MM/YYYY HH:mm")}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button
-            size="small"
-            color="secondary"
-            onClick={() => onCancelAppointment(id)}
-          >
-            Cancelar Agendamento
-          </Button>
-          <Button
-            size="small"
-            color="primary"
-            onClick={() => onConfirmAppointment(id)}
-          >
-            Confirmar Presença
-          </Button>
-        </CardActions>
-      </Card>
+    {appointments.map(appointment => (
+      <Appointment
+        appointment={appointment}
+        key={appointment.id}
+      />
     ))}
   </Layout>
 );
-
-export const schedulingComponentProps = {};

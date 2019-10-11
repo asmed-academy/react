@@ -1,7 +1,7 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 
-import Form from "../components/Form/smart";
+import Form from "./smart";
 
 export default {
   title: "Formulário"

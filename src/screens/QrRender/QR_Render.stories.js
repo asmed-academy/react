@@ -1,6 +1,6 @@
 import React from "react";
 
-import QR_Render from '../screens/QrRender/dumb';
+import QR_Render from './dumb';
 
 export default {
     title: "QR_Render"

@@ -1,9 +1,9 @@
 import React from 'react';
 import { action } from "@storybook/addon-actions";
 
-import { Welcome } from '../screens/Welcome/dumb';
+import { Welcome } from './dumb';
 
-import { SimpleTabs } from '../screens/Welcome/menu';
+import { SimpleTabs } from './menu';
 
 export default {
     title: 'Welcome'

@@ -1,40 +1,28 @@
-import React from 'react';
+import React, { MouseEvent } from "react";
 
-import { MenuButton } from './MenuButton';
+export type LayoutOuterProps = {
+  children: React.ReactNode;
+  title: string;
+  subtitle?: string | null;
+  renderRight?: (() => React.ReactNode) | null;
+  onBack?: (() => void) | null;
+  onLogout?: (() => void) | null;
+  user?: SidebarUser | null;
+};
 
-export type DumbProps = {
-    children: React.ReactNode,
-    drawerState: boolean,
-    onChangeDrawerState: (newState: boolean) => void,
-    height?: number,
-    title: string,
-    subtitle?: string,
-    holderStyle?: React.CSSProperties
-    onLogOut: () => void,
-    openChangePassword: () => void,
-    renderRight?: () => React.ReactNode,
-    onBack?: () => void
-  }
+export type LayoutInnerProps = {
+  drawerState: boolean;
+  onChangeDrawerState: (newState: boolean) => void;
+} & LayoutOuterProps;
 
-  export type SidebarProps = {
-    onLogOut: () => void,
-    onClose: () => void,
-    openChangePassword: () => void,
-    user?: {
-        id: string,
-        name?: string,
-        email: string
-      }
-  }
+export type SidebarUser = {
+  id: string;
+  name?: string;
+  email: string;
+};
 
-  export type MenuButtonProps = {
-    onChangeDrawerState: (newState: boolean) => void
-  }
-
-  export type BackButtonProps = {
-    onBack: () => void
-  }
-
-  export type GearButtonProps = {
-    onClick: () => void
-  }
+export type SidebarProps = {
+  onLogout: () => void;
+  onClose: () => void;
+  user?: SidebarUser | null;
+};

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { UserId } from '../screens/UserId/dumb';
+import { UserId } from './dumb';
 
 export default {
     title: "UserId"
