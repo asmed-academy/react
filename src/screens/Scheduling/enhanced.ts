@@ -16,7 +16,8 @@ const enhancer = mapPropsStream<
   SchedulingOuterProps
 >(prop$ => {
   const ui = {
-    anchorEl$: new BehaviorSubject<HTMLElement | null>(null)
+    anchorEl$: new BehaviorSubject<HTMLElement | null>(null),
+    sortOrder$: new BehaviorSubject<'asc' | 'desc'>('asc')
   };
 
   return combineLatest(
@@ -26,7 +27,7 @@ const enhancer = mapPropsStream<
     map(([props, menuAnchorEl]) => {
       return {
         ...props,
-        menuAnchorEl,
+        menuAnchorElement: menuAnchorEl,
         setMenuAnchorElement: (
           anchorEl: HTMLElement | null
         ) => {

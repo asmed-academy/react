@@ -3,12 +3,18 @@ import { Appointment } from "../../domain/Appointment.domain";
 export type SchedulingOuterProps = {
   userName: string;
   appointments: Appointment[];
-  onConfirmAppointment: (appointmentId: string) => void;
-  onCancelAppointment: (appointmentId: string) => void;
   onBack: () => void;
 };
 
+export type SortingOrder = "asc" | "desc";
+
 export type SchedulingInnerProps = {
-  menuAnchorEl: Element | null;
+  menuAnchorElement: Element | null;
   setMenuAnchorElement: (anchorEl: Element | null) => void;
+  sortOrder: SortingOrder;
+  changeSortOrder: (sortOrder: SortingOrder) => void;
+  filterMode: "future" | "backwards";
+  changeFilterMode: (
+    filterMode: "future" | "backwards"
+  ) => void;
 } & SchedulingOuterProps;

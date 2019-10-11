@@ -11,6 +11,10 @@ export type Appointment = {
     id: string;
     name: string;
   };
+  user: {
+    id: string;
+    name: string;
+  };
   status:
     | "pending"
     | "confirmed"

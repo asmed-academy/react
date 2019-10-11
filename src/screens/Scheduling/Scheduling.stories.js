@@ -17,7 +17,7 @@ export const Dumb = () => (
     appointments={mockAppointments}
     onConfirmAppointment={action("onConfirmAppointment")}
     onCancelAppointment={action("onCancelAppointment")}
-    menuAnchorEl={null}
+    menuAnchorElement={null}
     setMenuAnchorElement={action("setMenuAnchorElement")}
     onBack={action("onBack")}
   />
