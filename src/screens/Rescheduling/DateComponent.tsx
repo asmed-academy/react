@@ -6,6 +6,7 @@ import {
     KeyboardDatePicker,
 } from '@material-ui/pickers';
 import { FormHelperText } from '@material-ui/core';
+import { mockAppointments } from '../../stories/Rescheduling.stories'
 
 import moment from "moment";
 import "moment/locale/pt-br";
@@ -14,26 +15,22 @@ moment.locale("pt-br");
 
 
 export const DateComponent = () => {
-    const [selectedDate, setSelectedDate] = React.useState(moment('2014-08-18T21:11:54'));
 
-    const handleDateChange = date => {
-        setSelectedDate(date);
-    };
+    const handleDateChange = () => {  };
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <KeyboardDatePicker
-                    margin="normal"
-                    id="date-picker-dialog"
-                    label="Data"
-                    format="dd/MMMM/yyyy"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                    KeyboardButtonProps={{
-                        'aria-label': 'change date',
-                    }}
-                />
-                <FormHelperText style={{marginTop: "2px"}}>Em 15 dias</FormHelperText>
+            <KeyboardDatePicker
+                margin="normal"
+                id="date-picker-dialog"
+                label="Data"
+                value={moment(mockAppointments.date).format("YYYY/MM/DD")}
+                onChange={handleDateChange}
+                KeyboardButtonProps={{
+                    'aria-label': 'change date',
+                }}
+            />
+            <FormHelperText style={{ marginTop: "2px" }}>Em 15 dias</FormHelperText>
         </MuiPickersUtilsProvider>
     )
 }

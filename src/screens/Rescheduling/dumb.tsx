@@ -15,12 +15,12 @@ type ReschedulingProps = {
   horario: string;
 };
 
-export const Rescheduling = (speciality, date, horario: ReschedulingProps) => (
+export const Rescheduling = (speciality, date, horario, categoryName: ReschedulingProps) => (
   <Layout title="Reagendar Atendimento" subtitle="Fulano de Tal da Silva Sauro">
     <FormControl>
       <InputLabel>Serviço</InputLabel>
-      <Input value={speciality.name}/>
-      <FormHelperText>Consultas Médicas</FormHelperText>
+      <Input value={speciality.name} />
+      <FormHelperText>Serviços Médicos</FormHelperText>
     </FormControl>
     <DateComponent />
     <TimeComponent />

@@ -5,13 +5,16 @@ import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,
 } from '@material-ui/pickers';
+import {mockAppointments} from '../../stories/Rescheduling.stories'
+import moment from "moment";
+import "moment/locale/pt-br";
+
+moment.locale("pt-br");
+
 
 export const TimeComponent = () => {
-    const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
-    const handleDateChange = date => {
-        setSelectedDate(date);
-    };
+    const handleDateChange = ( ) => {  };
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -19,7 +22,7 @@ export const TimeComponent = () => {
                 margin="normal"
                 id="time-picker"
                 label="Horário"
-                value={selectedDate}
+                value={moment(mockAppointments.date)}
                 onChange={handleDateChange}
                 KeyboardButtonProps={{
                     'aria-label': 'change time',
