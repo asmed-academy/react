@@ -11,7 +11,7 @@ type AppointmentActionType =
 export type AppointmentOuterProps = {
   appointment: Appointment;
   today: Date;
-  onAction: (acfion: AppointmentActionType) => void;
+  onAction: (action: AppointmentActionType) => void;
 };
 
 export type AppointmentInnerProps = {
