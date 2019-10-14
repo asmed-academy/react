@@ -28,8 +28,6 @@ import { IconMenuItem } from "../../components/IconMenuItem";
 
 export const Scheduling = ({
   appointments,
-  onConfirmAppointment,
-  onCancelAppointment,
   menuAnchorEl,
   setMenuAnchorElement,
   onBack
@@ -63,7 +61,7 @@ export const Scheduling = ({
         </Menu>
       </React.Fragment>
     )}
-    title="Meus Agendamentos"
+    title="Convidar Usuário"
   >
     {appointments.map(appointment => (
       <Appointment
