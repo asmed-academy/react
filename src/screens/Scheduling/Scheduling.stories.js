@@ -5,7 +5,7 @@ import { action } from "@storybook/addon-actions";
 import { Scheduling as SchedulingDumb } from "./dumb";
 import SchedulingEnhanced from "./enhanced";
 
-import { mockAppointments } from "../../components/Appointment/mocks";
+import { mockAppointments } from "./mocks";
 
 export default {
   title: "Scheduling"
