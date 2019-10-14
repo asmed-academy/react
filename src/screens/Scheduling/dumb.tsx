@@ -19,8 +19,9 @@ import {
   Settings,
   ArrowDownward,
   ArrowUpward,
-  History
+  History,
 } from "@material-ui/icons";
+import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 
 import { SchedulingInnerProps } from "./types";
 import Appointment from "../../components/Appointment/enhanced";
@@ -49,25 +50,31 @@ export const Scheduling = ({
           />
           <Menu
             anchorEl={menuAnchorElement}
-            open={true}
+            open={!!menuAnchorElement}
             onClose={() => setMenuAnchorElement(null)}
           >
 
             <IconMenuItem
               text={
                 filterMode === 'future' ?
-                sortOrder === 'asc' ? 'Mais distantes primeiro' : 'Mais próximos primeiro' :
-                sortOrder === 'asc' ? 'Mais antigos primeiro' : 'Mais recentes primeiro'
+                  sortOrder === 'asc' ? 'Mais distantes primeiro' : 'Mais próximos primeiro' :
+                  sortOrder === 'asc' ? 'Mais antigos primeiro' : 'Mais recentes primeiro'
               }
-              onClick={() => changeSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-              Icon={ArrowUpward}
+              onClick={() => {
+                changeSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
+                setMenuAnchorElement(null);
+              }}
+              Icon={sortOrder === 'asc' ? ArrowDownward : ArrowUpward}
             />
             <IconMenuItem
               text={
                 filterMode === 'backwards' ? 'Agendamentos futuros' : 'Agendamentos anteriores'
               }
-              onClick={() => changeFilterMode(filterMode === 'future' ? 'backwards' : 'future')}
-              Icon={History}
+              onClick={() => {
+                changeFilterMode(filterMode === 'future' ? 'backwards' : 'future');
+                setMenuAnchorElement(null);
+              }}
+              Icon={filterMode === 'backwards' ? EventAvailableIcon : History}
             />
           </Menu>
         </React.Fragment>

@@ -1,4 +1,5 @@
 import UserAuth from './dumb';
+import {SortingEngine} from './sortingEngine';
 
 import { mapPropsStream } from "recompose";
 import {
@@ -53,4 +54,4 @@ const enhancer = mapPropsStream<
   );
 });
 
-export default enhancer(UserAuth);
+export default enhancer(SortingEngine);

@@ -47,7 +47,7 @@ const transformer: TransformerFunction = prop$ => {
   )
 };
 
-/*export const SortingEngine = mapPropsStream<
+export const SortingEngine = mapPropsStream<
   AuthorizedUsersInnerProps,
   AuthorizedUsersInnerProps
->(transformer)();*/
+>(transformer)(UserAuth);

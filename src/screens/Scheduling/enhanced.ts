@@ -1,4 +1,4 @@
-import { Scheduling } from "./dumb";
+import { SortingEngine } from "./sortingEngine";
 import { mapPropsStream } from "recompose";
 import {
   SchedulingOuterProps,
@@ -51,4 +51,4 @@ const enhancer = mapPropsStream<
   );
 });
 
-export default enhancer(Scheduling);
+export default enhancer(SortingEngine);
