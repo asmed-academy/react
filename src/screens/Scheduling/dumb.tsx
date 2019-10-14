@@ -19,9 +19,9 @@ import {
   Settings,
   ArrowDownward,
   ArrowUpward,
-  History,
+  History
 } from "@material-ui/icons";
-import EventAvailableIcon from '@material-ui/icons/EventAvailable';
+import EventAvailableIcon from "@material-ui/icons/EventAvailable";
 
 import { SchedulingInnerProps } from "./types";
 import Appointment from "../../components/Appointment/enhanced";
@@ -37,55 +37,74 @@ export const Scheduling = ({
   changeFilterMode,
   changeSortOrder
 }: SchedulingInnerProps) => (
-    <Layout
-      onBack={onBack}
-      renderRight={() => (
-        <React.Fragment>
-          <GenericMenuButton
-            Icon={Settings}
-            tooltip="Configurações"
-            onClick={evt => {
-              setMenuAnchorElement(evt.target as Element);
-            }}
-          />
-          <Menu
-            anchorEl={menuAnchorElement}
-            open={!!menuAnchorElement}
-            onClose={() => setMenuAnchorElement(null)}
-          >
-
-            <IconMenuItem
-              text={
-                filterMode === 'future' ?
-                  sortOrder === 'asc' ? 'Mais distantes primeiro' : 'Mais próximos primeiro' :
-                  sortOrder === 'asc' ? 'Mais antigos primeiro' : 'Mais recentes primeiro'
-              }
-              onClick={() => {
-                changeSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
-                setMenuAnchorElement(null);
-              }}
-              Icon={sortOrder === 'asc' ? ArrowDownward : ArrowUpward}
-            />
-            <IconMenuItem
-              text={
-                filterMode === 'backwards' ? 'Agendamentos futuros' : 'Agendamentos anteriores'
-              }
-              onClick={() => {
-                changeFilterMode(filterMode === 'future' ? 'backwards' : 'future');
-                setMenuAnchorElement(null);
-              }}
-              Icon={filterMode === 'backwards' ? EventAvailableIcon : History}
-            />
-          </Menu>
-        </React.Fragment>
-      )}
-      title="Meus Agendamentos"
-    >
-      {appointments.map(appointment => (
-        <Appointment
-          appointment={appointment}
-          key={appointment.id}
+  <Layout
+    onBack={onBack}
+    renderRight={() => (
+      <React.Fragment>
+        <GenericMenuButton
+          Icon={Settings}
+          tooltip="Configurações"
+          onClick={evt => {
+            setMenuAnchorElement(evt.target as Element);
+          }}
         />
-      ))}
-    </Layout>
-  );
+        <Menu
+          anchorEl={menuAnchorElement}
+          open={!!menuAnchorElement}
+          onClose={() => setMenuAnchorElement(null)}
+        >
+          <IconMenuItem
+            text={
+              filterMode === "future"
+                ? sortOrder === "asc"
+                  ? "Mais distantes primeiro"
+                  : "Mais próximos primeiro"
+                : sortOrder === "asc"
+                ? "Mais antigos primeiro"
+                : "Mais recentes primeiro"
+            }
+            onClick={() => {
+              changeSortOrder(
+                sortOrder === "asc" ? "desc" : "asc"
+              );
+              setMenuAnchorElement(null);
+            }}
+            Icon={
+              sortOrder === "asc"
+                ? ArrowDownward
+                : ArrowUpward
+            }
+          />
+          <IconMenuItem
+            text={
+              filterMode === "backwards"
+                ? "Agendamentos futuros"
+                : "Agendamentos anteriores"
+            }
+            onClick={() => {
+              changeFilterMode(
+                filterMode === "future"
+                  ? "backwards"
+                  : "future"
+              );
+              setMenuAnchorElement(null);
+            }}
+            Icon={
+              filterMode === "backwards"
+                ? EventAvailableIcon
+                : History
+            }
+          />
+        </Menu>
+      </React.Fragment>
+    )}
+    title="Meus Agendamentos"
+  >
+    {appointments.map(appointment => (
+      <Appointment
+        appointment={appointment}
+        key={appointment.id}
+      />
+    ))}
+  </Layout>
+);
