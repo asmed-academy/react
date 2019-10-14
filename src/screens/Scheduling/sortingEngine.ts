@@ -1,6 +1,6 @@
 import { mapPropsStream } from "recompose";
 import { SchedulingInnerProps } from "./types";
-import { Observable } from "rxjs";
+import { Observable, from } from "rxjs";
 import { Scheduling } from "./dumb";
 import { map, filter } from "rxjs/operators";
 import moment from 'moment';
@@ -10,11 +10,11 @@ type TransformerFunction = (
 ) => Observable<SchedulingInnerProps>;
 
 const transformer: TransformerFunction = (prop$) => {
-  return prop$.pipe(
+  return from(prop$).pipe(
     map(({ appointments, filterMode, sortOrder, ...props }) => {
       const sortedAppointments = appointments.filter(appointment => {
-        const today = moment().format('YYYY-MM-DD');
-        const appointmentDate = moment(appointment.date).format("YYYY-MM-DD");
+        const today = moment().format('YYYY-MM-DD, h:mm');
+        const appointmentDate = moment(appointment.date).format("YYYY-MM-DD, h:mm");
         
         if(filterMode === 'backwards' && moment(appointmentDate).isBefore(today) 
         || filterMode === 'future' && moment(appointmentDate).isSameOrAfter(today)){
@@ -25,8 +25,8 @@ const transformer: TransformerFunction = (prop$) => {
 
       }).sort((appointmentA, appointmentB) => {
 
-        const appointmentADate = moment(appointmentA.date).format('YYYY-MM-DD');
-        const appointmentBDate = moment(appointmentB.date).format('YYYY-MM-DD');
+        const appointmentADate = moment(appointmentA.date).format('YYYY-MM-DD, h:mm');
+        const appointmentBDate = moment(appointmentB.date).format('YYYY-MM-DD, h:mm');
 
         if(sortOrder === 'asc'){
           if(moment(appointmentADate).isAfter(appointmentBDate)){
