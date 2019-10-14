@@ -5,11 +5,15 @@ export type AuthorizedUsersOuterProps = {
   onBack: () => void;
 }
 
+export type SortingOrder = "asc" | "desc";
+
+export type ChangeFilter = "active" | "inactive";
+
 export type AuthorizedUsersInnerProps = {
   menuAnchorElement: Element | null;
   setMenuAnchorElement: (anchorEl: Element | null) => void;
   filterMode: 'active' | 'inactive';
-  changeFilterMode: (filterMode: "active" | "inactive") => void;
+  changeFilterMode: (filterMode: ChangeFilter) => void;
   sortOrder: 'asc' | 'desc';
-  changeSortOrder: (sortOrder: 'asc' | 'desc') => void;
+  changeSortOrder: (sortOrder: SortingOrder) => void;
 } & AuthorizedUsersOuterProps;

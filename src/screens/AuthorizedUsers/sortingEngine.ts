@@ -1,15 +1,15 @@
 import { mapPropsStream } from "recompose";
 import { AuthorizedUsersInnerProps } from "./types";
-import { Observable } from "rxjs";
+import { Observable, from } from "rxjs";
 import { map } from "rxjs/operators";
-//import {} from './dumb';
+import UserAuth from './dumb';
 
 type TransformerFunction = (
   prop$: Observable<AuthorizedUsersInnerProps>
 ) => Observable<AuthorizedUsersInnerProps>;
 
 const transformer: TransformerFunction = prop$ => {
-  return prop$.pipe(
+  return from(prop$).pipe(
     map(({ users, filterMode, sortOrder, ...props }) => {
       const sortedUsers = users.filter(user => {
 
