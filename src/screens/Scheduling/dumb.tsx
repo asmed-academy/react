@@ -28,48 +28,57 @@ import { IconMenuItem } from "../../components/IconMenuItem";
 
 export const Scheduling = ({
   appointments,
-  onConfirmAppointment,
-  onCancelAppointment,
-  menuAnchorEl,
+  menuAnchorElement,
   setMenuAnchorElement,
-  onBack
+  onBack,
+  filterMode,
+  sortOrder,
+  changeFilterMode,
+  changeSortOrder
 }: SchedulingInnerProps) => (
-  <Layout
-    onBack={onBack}
-    renderRight={() => (
-      <React.Fragment>
-        <GenericMenuButton
-          Icon={Settings}
-          tooltip="Configurações"
-          onClick={evt => {
-            setMenuAnchorElement(evt.target as Element);
-          }}
+    <Layout
+      onBack={onBack}
+      renderRight={() => (
+        <React.Fragment>
+          <GenericMenuButton
+            Icon={Settings}
+            tooltip="Configurações"
+            onClick={evt => {
+              setMenuAnchorElement(evt.target as Element);
+            }}
+          />
+          <Menu
+            anchorEl={menuAnchorElement}
+            open={true}
+            onClose={() => setMenuAnchorElement(null)}
+          >
+
+            <IconMenuItem
+              text={
+                filterMode === 'future' ?
+                sortOrder === 'asc' ? 'Mais distantes primeiro' : 'Mais próximos primeiro' :
+                sortOrder === 'asc' ? 'Mais antigos primeiro' : 'Mais recentes primeiro'
+              }
+              onClick={() => changeSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+              Icon={ArrowUpward}
+            />
+            <IconMenuItem
+              text={
+                filterMode === 'backwards' ? 'Agendamentos futuros' : 'Agendamentos anteriores'
+              }
+              onClick={() => changeFilterMode(filterMode === 'future' ? 'backwards' : 'future')}
+              Icon={History}
+            />
+          </Menu>
+        </React.Fragment>
+      )}
+      title="Meus Agendamentos"
+    >
+      {appointments.map(appointment => (
+        <Appointment
+          appointment={appointment}
+          key={appointment.id}
         />
-        <Menu
-          anchorEl={menuAnchorEl}
-          open={!!menuAnchorEl}
-          onClose={() => setMenuAnchorElement(null)}
-        >
-          <IconMenuItem
-            text="Mais distantes primeiro"
-            onClick={() => {}}
-            Icon={ArrowUpward}
-          />
-          <IconMenuItem
-            text="Agendamentos anteriores"
-            onClick={() => {}}
-            Icon={History}
-          />
-        </Menu>
-      </React.Fragment>
-    )}
-    title="Meus Agendamentos"
-  >
-    {appointments.map(appointment => (
-      <Appointment
-        appointment={appointment}
-        key={appointment.id}
-      />
-    ))}
-  </Layout>
-);
+      ))}
+    </Layout>
+  );

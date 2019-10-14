@@ -11,6 +11,62 @@ export default {
   title: "Scheduling"
 };
 
+export const SortAscFilterFuture = () => (
+  <SchedulingDumb
+    userName="Fulano de Tal"
+    appointments={mockAppointments}
+    onConfirmAppointment={action("onConfirmAppointment")}
+    onCancelAppointment={action("onCancelAppointment")}
+    menuAnchorElement={null}
+    setMenuAnchorElement={action("setMenuAnchorElement")}
+    onBack={action("onBack")}
+    sortOrder="asc"
+    filterMode="future"
+  />
+);
+
+export const SortDescFilterFuture = () => (
+  <SchedulingDumb
+    userName="Fulano de Tal"
+    appointments={mockAppointments}
+    onConfirmAppointment={action("onConfirmAppointment")}
+    onCancelAppointment={action("onCancelAppointment")}
+    menuAnchorElement={null}
+    setMenuAnchorElement={action("setMenuAnchorElement")}
+    onBack={action("onBack")}
+    sortOrder="desc"
+    filterMode="future"
+  />
+);
+
+export const SortAscFilterBackwards = () => (
+  <SchedulingDumb
+    userName="Fulano de Tal"
+    appointments={mockAppointments}
+    onConfirmAppointment={action("onConfirmAppointment")}
+    onCancelAppointment={action("onCancelAppointment")}
+    menuAnchorElement={null}
+    setMenuAnchorElement={action("setMenuAnchorElement")}
+    onBack={action("onBack")}
+    sortOrder="asc"
+    filterMode="backwards"
+  />
+);
+
+export const SortDescFilterBackwards = () => (
+  <SchedulingDumb
+    userName="Fulano de Tal"
+    appointments={mockAppointments}
+    onConfirmAppointment={action("onConfirmAppointment")}
+    onCancelAppointment={action("onCancelAppointment")}
+    menuAnchorElement={null}
+    setMenuAnchorElement={action("setMenuAnchorElement")}
+    onBack={action("onBack")}
+    sortOrder="desc"
+    filterMode="backwards"
+  />
+);
+
 export const Dumb = () => (
   <SchedulingDumb
     userName="Fulano de Tal"
