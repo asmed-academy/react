@@ -19,8 +19,9 @@ import {
   Settings,
   ArrowDownward,
   ArrowUpward,
-  History
+  History,
 } from "@material-ui/icons";
+import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 
 import { SchedulingInnerProps } from "./types";
 import Appointment from "../../components/Appointment/enhanced";
@@ -28,9 +29,13 @@ import { IconMenuItem } from "../../components/IconMenuItem";
 
 export const Scheduling = ({
   appointments,
-  menuAnchorEl,
+  menuAnchorElement,
   setMenuAnchorElement,
-  onBack
+  onBack,
+  filterMode,
+  sortOrder,
+  changeFilterMode,
+  changeSortOrder
 }: SchedulingInnerProps) => (
   <Layout
     onBack={onBack}
@@ -44,24 +49,37 @@ export const Scheduling = ({
           }}
         />
         <Menu
-          anchorEl={menuAnchorEl}
-          open={!!menuAnchorEl}
+          anchorEl={menuAnchorElement}
+          open={!!menuAnchorElement}
           onClose={() => setMenuAnchorElement(null)}
         >
+
           <IconMenuItem
-            text="Mais distantes primeiro"
-            onClick={() => {}}
-            Icon={ArrowUpward}
+            text={
+              filterMode === 'future' ?
+                sortOrder === 'asc' ? 'Mais distantes primeiro' : 'Mais próximos primeiro' :
+                sortOrder === 'asc' ? 'Mais antigos primeiro' : 'Mais recentes primeiro'
+            }
+            onClick={() => {
+              changeSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
+              setMenuAnchorElement(null);
+            }}
+            Icon={sortOrder === 'asc' ? ArrowDownward : ArrowUpward}
           />
           <IconMenuItem
-            text="Agendamentos anteriores"
-            onClick={() => {}}
-            Icon={History}
+            text={
+              filterMode === 'backwards' ? 'Agendamentos futuros' : 'Agendamentos anteriores'
+            }
+            onClick={() => {
+              changeFilterMode(filterMode === 'future' ? 'backwards' : 'future');
+              setMenuAnchorElement(null);
+            }}
+            Icon={filterMode === 'backwards' ? EventAvailableIcon : History}
           />
         </Menu>
       </React.Fragment>
     )}
-    title="Convidar Usuário"
+    title="Meus Agendamentos"
   >
     {appointments.map(appointment => (
       <Appointment

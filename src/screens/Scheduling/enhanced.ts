@@ -1,8 +1,10 @@
-import { Scheduling } from "./dumb";
+import { SortingEngine } from "./sortingEngine";
 import { mapPropsStream } from "recompose";
 import {
   SchedulingOuterProps,
-  SchedulingInnerProps
+  SchedulingInnerProps,
+  SortingOrder,
+  ChangeFilter
 } from "./types";
 import {
   combineLatest,
@@ -16,15 +18,20 @@ const enhancer = mapPropsStream<
   SchedulingOuterProps
 >(prop$ => {
   const ui = {
-    anchorEl$: new BehaviorSubject<HTMLElement | null>(null),
-    sortOrder$: new BehaviorSubject<'asc' | 'desc'>('asc')
+    anchorEl$: new BehaviorSubject<HTMLElement | null>(
+      null
+    ),
+    sortOrder$: new BehaviorSubject<SortingOrder>("asc"),
+    filterMode$: new BehaviorSubject<ChangeFilter>("future")
   };
 
   return combineLatest(
     prop$ as Observable<SchedulingOuterProps>,
-    ui.anchorEl$
+    ui.anchorEl$,
+    ui.sortOrder$,
+    ui.filterMode$
   ).pipe(
-    map(([props, menuAnchorEl]) => {
+    map(([props, menuAnchorEl, sortOrder, filterMode]) => {
       return {
         ...props,
         menuAnchorElement: menuAnchorEl,
@@ -32,10 +39,16 @@ const enhancer = mapPropsStream<
           anchorEl: HTMLElement | null
         ) => {
           ui.anchorEl$.next(anchorEl);
-        }
+        },
+        sortOrder,
+        changeSortOrder: (sortOrder: SortingOrder) =>
+          ui.sortOrder$.next(sortOrder),
+        filterMode,
+        changeFilterMode: (filterMode: ChangeFilter) =>
+          ui.filterMode$.next(filterMode)
       } as SchedulingInnerProps;
     })
   );
 });
 
-export default enhancer(Scheduling);
+export default enhancer(SortingEngine);

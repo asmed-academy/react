@@ -8,13 +8,14 @@ import {
 import {mockAppointments} from '../../stories/Rescheduling.stories'
 import moment from "moment";
 import "moment/locale/pt-br";
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 
 moment.locale("pt-br");
 
 
 export const TimeComponent = () => {
 
-    const handleDateChange = ( ) => {  };
+    const handleTimeChange = ( ) => {  };
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -23,7 +24,7 @@ export const TimeComponent = () => {
                 id="time-picker"
                 label="Horário"
                 value={moment(mockAppointments.date)}
-                onChange={handleDateChange}
+                onChange={handleTimeChange}
                 KeyboardButtonProps={{
                     'aria-label': 'change time',
                 }}
