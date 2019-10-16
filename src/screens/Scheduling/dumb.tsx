@@ -19,9 +19,9 @@ import {
   Settings,
   ArrowDownward,
   ArrowUpward,
-  History,
+  History
 } from "@material-ui/icons";
-import EventAvailableIcon from '@material-ui/icons/EventAvailable';
+import EventAvailableIcon from "@material-ui/icons/EventAvailable";
 
 import { SchedulingInnerProps } from "./types";
 import Appointment from "../../components/Appointment/enhanced";
@@ -53,8 +53,7 @@ export const Scheduling = ({
           open={!!menuAnchorElement}
           onClose={() => setMenuAnchorElement(null)}
         >
-
-          <IconMenuItem
+        <IconMenuItem
             text={
               filterMode === 'future' ?
                 sortOrder === 'asc' ? 'Mais distantes primeiro' : 'Mais próximos primeiro' :
