@@ -4,10 +4,10 @@ import {
   Card,
   CardHeader,
   IconButton,
-  Menu,
-  MenuItem,
-  ListItemIcon,
-  ListItemText
+  Menu
+  // MenuItem,
+  // ListItemIcon,
+  // ListItemText
 } from "@material-ui/core";
 import { MoreVert, Done } from "@material-ui/icons";
 import { IconMenuItem } from "../IconMenuItem";
