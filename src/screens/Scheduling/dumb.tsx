@@ -53,47 +53,27 @@ export const Scheduling = ({
           open={!!menuAnchorElement}
           onClose={() => setMenuAnchorElement(null)}
         >
-          <IconMenuItem
+        <IconMenuItem
             text={
-              filterMode === "future"
-                ? sortOrder === "asc"
-                  ? "Mais distantes primeiro"
-                  : "Mais próximos primeiro"
-                : sortOrder === "asc"
-                ? "Mais antigos primeiro"
-                : "Mais recentes primeiro"
+              filterMode === 'future' ?
+                sortOrder === 'asc' ? 'Mais distantes primeiro' : 'Mais próximos primeiro' :
+                sortOrder === 'asc' ? 'Mais antigos primeiro' : 'Mais recentes primeiro'
             }
             onClick={() => {
-              changeSortOrder(
-                sortOrder === "asc" ? "desc" : "asc"
-              );
+              changeSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
               setMenuAnchorElement(null);
             }}
-            Icon={
-              sortOrder === "asc"
-                ? ArrowDownward
-                : ArrowUpward
-            }
+            Icon={sortOrder === 'asc' ? ArrowDownward : ArrowUpward}
           />
           <IconMenuItem
             text={
-              filterMode === "backwards"
-                ? "Agendamentos futuros"
-                : "Agendamentos anteriores"
+              filterMode === 'backwards' ? 'Agendamentos futuros' : 'Agendamentos anteriores'
             }
             onClick={() => {
-              changeFilterMode(
-                filterMode === "future"
-                  ? "backwards"
-                  : "future"
-              );
+              changeFilterMode(filterMode === 'future' ? 'backwards' : 'future');
               setMenuAnchorElement(null);
             }}
-            Icon={
-              filterMode === "backwards"
-                ? EventAvailableIcon
-                : History
-            }
+            Icon={filterMode === 'backwards' ? EventAvailableIcon : History}
           />
         </Menu>
       </React.Fragment>
