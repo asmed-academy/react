@@ -6,8 +6,7 @@ export const mockAppointments: Appointment[] = [
     date: new Date("2019-10-15T14:00:00.000"),
     service: {
       id: "bruno-xpto-01",
-      name: "Bruno da Silva Sauro",
-      email: "brunosauro12@cachulinha.com",
+      name: "Altenor da Silva Sauro",
       categoryName: "Serviços Médicos",
       price: 60
     },

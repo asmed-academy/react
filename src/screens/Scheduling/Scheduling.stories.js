@@ -4,6 +4,7 @@ import { action } from "@storybook/addon-actions";
 
 import { Scheduling as SchedulingDumb } from "./dumb";
 import SchedulingEnhanced from "./enhanced";
+import SchedulingSmart from "./smart";
 
 import { mockAppointments } from "./mocks";
 
@@ -83,8 +84,13 @@ export const Enhanced = () => (
   <SchedulingEnhanced
     userName="Fulano de Tal"
     appointments={mockAppointments}
-    onConfirmAppointment={action("onConfirmAppointment")}
-    onCancelAppointment={action("onCancelAppointment")}
+    onBack={action("onBack")}
+  />
+);
+
+export const Smart = () => (
+  <SchedulingSmart
+    userName="Fulano de Tal"
     onBack={action("onBack")}
   />
 );

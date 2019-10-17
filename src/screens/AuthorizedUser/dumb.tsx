@@ -17,13 +17,16 @@ import {
   IconButton
 } from "@material-ui/core";
 import { IconMenuItem } from "../../components/IconMenuItem";
-import { AuthorizedUsersInnerProps } from "./types";
+import {
+  AuthorizedUsersInnerProps,
+  AuthorizedUsersScreenComponent
+} from "./types";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import CheckIcon from "@material-ui/icons/Check";
 import CloseIcon from "@material-ui/icons/Close";
 import SortByAlphaIcon from "@material-ui/icons/SortByAlpha";
 
-export const UserAuth = ({
+export const AuthorizedUsers: AuthorizedUsersScreenComponent = ({
   users,
   setMenuAnchorElement,
   menuAnchorElement,

@@ -1,4 +1,5 @@
 import React from "react";
+
 import { AppointmentInnerProps } from "./types";
 import {
   Card,
@@ -15,7 +16,9 @@ import { IconMenuItem } from "../IconMenuItem";
 export const Appointment = ({
   appointment,
   menuAnchorElement,
-  setMenuAnchorElement
+  onAction,
+  setMenuAnchorElement,
+  today
 }: AppointmentInnerProps) => (
   <Card>
     <CardHeader

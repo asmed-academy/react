@@ -1,6 +1,6 @@
 import React from "react";
 
-import { UserAuth as UserAuthDumb } from "./dumb";
+import { AuthorizedUsers as UserAuthDumb } from "./dumb";
 
 
 export default {

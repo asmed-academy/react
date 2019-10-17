@@ -1,10 +1,14 @@
 import { Appointment } from "../../domain/Appointment.domain";
+import { Observable } from "rxjs";
 
-export type SchedulingOuterProps = {
+export type SchedulingRootProps = {
   userName: string;
-  appointments: Appointment[];
   onBack: () => void;
 };
+
+export type SchedulingOuterProps = {
+  appointments: Appointment[];
+} & SchedulingRootProps;
 
 export type SortingOrder = "asc" | "desc";
 
@@ -19,3 +23,10 @@ export type SchedulingInnerProps = {
   changeFilterMode: (filterMode: ChangeFilter) => void;
 } & SchedulingOuterProps;
 
+export type EnhancerFunction = (
+  prop$: Observable<SchedulingOuterProps>
+) => Observable<SchedulingInnerProps>;
+
+export type SmartifierFunction = (
+  prop$: Observable<SchedulingRootProps>
+) => Observable<SchedulingOuterProps>;
