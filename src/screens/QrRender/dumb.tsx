@@ -1,48 +1,57 @@
-import React from "react";
-import styled from 'styled-components';
+import React, { useState } from "react";
+import {
+  ContainerStyled,
+  TextStyled
+} from "../../components/QRCodeRender/QrCodeRenderStyled";
+import windowSize from "react-window-size";
+import { Box } from "./Box";
+import { Button } from "./Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQrcode } from "@fortawesome/free-solid-svg-icons";
 
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
-import TouchAppIcon from "@material-ui/icons/TouchApp";
-import {BoxStyled} from './RanderStyled';
-import {IconStyled} from './RenderIconStyled';
+const Tela = props => {
+  const [active, setActive] = useState(null);
 
-const CustomBox = styled(Box)`
-  border: 1px solid rgba(0,0,0,0.5);
-  height: 100vh;
-  box-sizing: border-box;
-`;
+  const activeCam = actived => {
+    setActive(actived);
 
-export default function QR_Render() {
+    console.log(active);
+  };
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth="sm">
-        <CustomBox
-          component="div"
-          m={1}
-        >
-          <BoxStyled
-            component="div"
-            m={1}
-            style={{background:'#000'}}
-
+    <ContainerStyled>
+      {active ? (
+        <Box height="100%" background="#000">
+          <FontAwesomeIcon
+            icon={faQrcode}
+            style={{ color: "#fff", fontSize: 60 }}
           />
-
-          <BoxStyled
-            component="div"
-            m={1}
+          <TextStyled
+            style={{ color: "#a4b0be", padding: "0 80px" }}
           >
-            <IconStyled >
+            Ative a camera para ler o QR Code
+          </TextStyled>
+        
+        </Box>
+      ) : (
+        <Box height="100%" background="#000">
+          <FontAwesomeIcon
+            icon={faQrcode}
+            style={{ color: "#fff", fontSize: 60 }}
+          />
+          <TextStyled
+            style={{ color: "#a4b0be", padding: "0 80px" }}
+          >
+            Aponte a camera
+          </TextStyled>
 
-            </IconStyled>
-            <p>
-              Aponte a câmera <br /> para o QR Code
-            </p>
-          </BoxStyled>
-        </CustomBox>
-      </Container>
-    </React.Fragment>
+          <Button
+            name="Button"
+            onClick={() => activeCam(true)}
+          />
+        </Box>
+      )}
+    </ContainerStyled>
   );
-}
+};
+
+export default windowSize(Tela);
